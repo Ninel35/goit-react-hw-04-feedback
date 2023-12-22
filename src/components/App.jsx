@@ -10,12 +10,19 @@ export const App = () => {
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
 
-  
+   
   const handlerClick = ({ target: { name } }) => {
-    if (name === 'good') setGood(prev => prev + 1)
-    else if (name === 'neutral') setNeutral(prev => prev + 1)
-    else setBad(prev=>prev +1)    
-  };
+    switch (name) {
+      case 'good':
+        setGood(prev => prev + 1)
+          break;
+      case 'neutral':
+        setNeutral(prev => prev + 1)
+          break;
+      case 'bad': setBad(prev => prev + 1);
+
+    }
+  }
 
   const countTotalFeedback = () => {
         return good + neutral + bad;
@@ -31,7 +38,7 @@ export const App = () => {
   return (
     <>
         <Section title="Please leave feedback" >
-          <FeedbackOptions options={['good', 'neutral', 'bad']} onLeaveFeedback={handlerClick} />
+          <FeedbackOptions options={Object.keys({good, neutral, bad})} onLeaveFeedback={handlerClick} />
           <h2>Statistics</h2>
           <Statistics good={good} neutral={neutral} bad={bad} total={countTotalFeedback()} positiveFeedback={countPositiveFeedbackPercentage()} >
              <Notification message="There is no feedback" /> 
