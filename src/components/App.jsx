@@ -15,12 +15,12 @@ export const App = () => {
     switch (name) {
       case 'good':
         setGood(prev => prev + 1)
-          break;
+        break;
       case 'neutral':
         setNeutral(prev => prev + 1)
-          break;
+        break;
       case 'bad': setBad(prev => prev + 1);
-
+      default:
     }
   }
 
