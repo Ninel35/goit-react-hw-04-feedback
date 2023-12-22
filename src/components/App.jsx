@@ -19,7 +19,8 @@ export const App = () => {
       case 'neutral':
         setNeutral(prev => prev + 1)
         break;
-      case 'bad': setBad(prev => prev + 1);
+      case 'bad': setBad(prev => prev + 1)
+        break;
       default:
     }
   }
